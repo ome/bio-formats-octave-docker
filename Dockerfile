@@ -13,3 +13,5 @@ RUN echo "/home/octave/bioformats_package.jar" >> /home/octave/javaclasspath.txt
 
 
 RUN echo "pkg install bioformats-octave-$VERSION.tar.gz" | octave
+
+ADD *.m /home/octave/
