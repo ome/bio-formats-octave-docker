@@ -4,5 +4,4 @@ pkg load bioformats
 [s, v] = bfCheckJavaPath()
 bfInitLogging('INFO');
 
-r = bfGetReader('test.fake');
-r.close();
+test_bfopen('tubhiswt-3D/tubhiswt_C0.ome.tif');
