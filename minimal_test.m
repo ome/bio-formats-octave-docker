@@ -8,6 +8,6 @@ bfInitLogging('INFO');
 test_bfopen('tubhiswt-3D/tubhiswt_C0.ome.tif');
 
 % Increase the debugging verbosity
-loci.common.DebugTools.setRootLevel('DEBUG');
+javaObject('loci.common.DebugTools.setRootLevel', 'DEBUG');
 
 test_bfopen('tubhiswt-3D/tubhiswt_C0.ome.tif');
