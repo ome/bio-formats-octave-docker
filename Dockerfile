@@ -1,4 +1,4 @@
-FROM openmicroscopy/octave:0.1.0
+FROM openmicroscopy/octave
 MAINTAINER ome-devel@lists.openmicroscopy.org.uk
 
 ARG VERSION=5.5.2
