@@ -1,5 +1,7 @@
 sudo: required
 
+group: deprecated-2017Q2
+
 services:
   - docker
 
@@ -7,4 +9,4 @@ before_install:
   - docker build -t bio-formats-octave .
 
 script:
-- docker run -ti bio-formats-octave bftest.m
+- docker run -ti bio-formats-octave minimal_test.m
