@@ -5,9 +5,10 @@ pkg load bioformats
 [s, v] = bfCheckJavaPath()
 bfInitLogging('INFO');
 
-test_bfopen('tubhiswt-3D/tubhiswt_C0.ome.tif');
+arg_list = argv();
+test_bfopen(arg_list{1});
 
 % Increase the debugging verbosity
 javaMethod('setRootLevel', 'loci.common.DebugTools', 'DEBUG');
 
-test_bfopen('tubhiswt-3D/tubhiswt_C0.ome.tif');
+test_bfopen(arg_list{1});
