@@ -1,7 +1,7 @@
 FROM openmicroscopy/octave:0.1.0
 MAINTAINER ome-devel@lists.openmicroscopy.org.uk
 
-ARG VERSION=5.5.2
+ARG VERSION=5.5.3
 
 USER root
 RUN apt-get update && apt-get install -y wget unzip
