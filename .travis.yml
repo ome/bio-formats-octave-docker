@@ -10,9 +10,10 @@ cache:
   - data
 
 before_install: 
-  - if [ ! -f data/tubhiswt-3D/tubhiswt_C0.ome.tif ]; then wget --user-agent Travis https://downloads.openmicroscopy.org/images/OME-TIFF/2016-06/tubhiswt-3D.zip && unzip tubhiswt-3D.zip && mv tubhiswt-3D data; fi
+  - if [ ! -f tubhiswt-2D/tubhiswt_C0.ome.tif ]; then wget --user-agent Travis https://downloads.openmicroscopy.org/images/OME-TIFF/2016-06/tubhiswt-2D.zip && unzip tubhiswt-2D.zip; fi
   - touch "data/test&sizeT=3.fake"
   - docker build -t bio-formats-octave .
 
 script:
-- docker run -ti -v $(pwd)/data/:/data/ bio-formats-octave travis_test.m /data/tubhiswt-3D/tubhiswt_C0.ome.tif "/data/test&sizeT=3.fake"
+- docker run -ti -v $(pwd)/data/:/data/ bio-formats-octave travis_test.m /data/tubhiswt-2D/tubhiswt_C0.ome.tif
+- docker run -ti -v $(pwd)/data/:/data/ bio-formats-octave travis_test.m  "/data/test&sizeT=3.fake"

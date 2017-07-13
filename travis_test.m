@@ -11,4 +11,4 @@ test_bfopen(arg_list{1});
 % Increase the debugging verbosity
 javaMethod('setRootLevel', 'loci.common.DebugTools', 'DEBUG');
 
-test_bfopen(arg_list{2});
+test_bfopen(arg_list{1});
