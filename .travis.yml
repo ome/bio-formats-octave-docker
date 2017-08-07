@@ -5,8 +5,15 @@ group: deprecated-2017Q2
 services:
   - docker
 
+cache:
+  directories:
+  - data
+
 before_install: 
+  - if [ ! -f tubhiswt-2D/tubhiswt_C0.ome.tif ]; then wget --user-agent Travis https://downloads.openmicroscopy.org/images/OME-TIFF/2016-06/tubhiswt-2D.zip && unzip tubhiswt-2D.zip && mv tubhiswt-2D data; fi
+  - touch "data/test&sizeT=3.fake"
   - docker build -t bio-formats-octave .
 
 script:
-- docker run -ti bio-formats-octave minimal_test.m
+- docker run -ti -v $(pwd)/data/:/data/ bio-formats-octave travis_test.m /data/tubhiswt-2D/tubhiswt_C0.ome.tif
+- docker run -ti -v $(pwd)/data/:/data/ bio-formats-octave travis_test.m  "/data/test&sizeT=3.fake"
