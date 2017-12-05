@@ -23,4 +23,4 @@ References
 ----------
 
 For more information see
-https://www.openmicroscopy.org/site/support/bio-formats/users/octave/index.html
+https://docs.openmicroscopy.org/latest/bio-formats/users/octave/index.html
