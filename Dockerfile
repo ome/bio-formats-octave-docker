@@ -1,4 +1,4 @@
-FROM openmicroscopy/octave:0.2.0
+FROM sbesson/octave:0.3.0
 MAINTAINER ome-devel@lists.openmicroscopy.org.uk
 
 ARG VERSION=6.0.0-m2
