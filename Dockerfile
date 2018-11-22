@@ -1,7 +1,7 @@
-FROM sbesson/octave:0.3.0
+FROM openmicroscopy/octave:0.3.0
 MAINTAINER ome-devel@lists.openmicroscopy.org.uk
 
-ARG VERSION=6.0.0-m2
+ARG VERSION=6.0.0-m3
 
 USER root
 RUN apt-get update \
