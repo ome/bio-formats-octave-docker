@@ -1,7 +1,9 @@
 FROM openmicroscopy/octave:0.3.0
-MAINTAINER ome-devel@lists.openmicroscopy.org.uk
+LABEL maintainer="ome-devel@lists.openmicroscopy.org.uk"
+LABEL org.opencontainers.image.source="https://github.com/ome/bio-formats-octave-docker"
 
-ARG VERSION=6.0.0-m3
+ARG VERSION=6.1.0
+
 
 USER root
 RUN apt-get update \
