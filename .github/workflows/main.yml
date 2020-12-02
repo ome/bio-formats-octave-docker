@@ -18,6 +18,7 @@ jobs:
       - name: Test
         shell: bash
         run: |
+          mkdir data
           touch "data/test&sizeT=3.fake"
           if [ ! -f data/tubhiswt-2D/tubhiswt_C0.ome.tif ]; then wget --user-agent GHA https://downloads.openmicroscopy.org/images/OME-TIFF/2016-06/tubhiswt-2D.zip && unzip tubhiswt-2D.zip && mv tubhiswt-2D data; fi
           docker run -t -v $(pwd)/data/:/data/ bio-formats-octave travis_test.m /data/tubhiswt-2D/tubhiswt_C0.ome.tif
