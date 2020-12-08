@@ -3,6 +3,8 @@ Bio-Formats Octave
 
 [![Docker build](https://img.shields.io/docker/build/openmicroscopy/bio-formats-octave.svg)](https://hub.docker.com/r/openmicroscopy/bio-formats-octave)
 
+[![Actions Status](https://github.com/ome/bio-formats-octave-docker/workflows/Build/badge.svg)](https://github.com/ome/bio-formats-octave-docker/actions)
+
 This container contains GNU Octave with the latest Bio-Formats package 
 installed.
 
