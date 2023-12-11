@@ -2,7 +2,7 @@ FROM openmicroscopy/octave:0.3.0
 LABEL maintainer="ome-devel@lists.openmicroscopy.org.uk"
 LABEL org.opencontainers.image.source="https://github.com/ome/bio-formats-octave-docker"
 
-ARG VERSION=7.0.1
+ARG VERSION=7.1.0
 
 
 USER root
