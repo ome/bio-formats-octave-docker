@@ -33,20 +33,17 @@ jobs:
     env:
       name: openmicroscopy/bio-formats-octave
     steps:
-      - name: Get prefix
-        id: getprefix
-        run: |
-          if [ ! -z ${{ env.name }} ]; then
-            echo "prefix=${{ env.name }}:" >> $GITHUB_OUTPUT
-          else
-            echo "prefix=${{ github.repository }}:" >> $GITHUB_OUTPUT
-          fi
       - name: Get other tags
         id: gettags
-        uses: jupyterhub/action-major-minor-tag-calculator@v1.1.0
+        uses: jupyterhub/action-major-minor-tag-calculator@v3
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
-          prefix: "${{ steps.getprefix.outputs.prefix }}"
+          prefix: "${{ env.name }}:"
+      - name: Docker metadata
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.name }}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: Login to DockerHub
@@ -58,4 +55,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           tags: ${{ join(fromJson(steps.gettags.outputs.tags)) }}
+          labels: ${{ steps.meta.outputs.labels }}
           push: true
