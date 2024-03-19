@@ -18,13 +18,13 @@ jobs:
       - name: Prepare data
         run: |
           mkdir data
-          touch "data/test&sizeT=3.fake"
+          wget --user-agent GHA https://downloads.openmicroscopy.org/images/OME-XML/2016-06/time-series.ome.xml && mv time-series.ome.xml data
           wget --user-agent GHA https://downloads.openmicroscopy.org/images/OME-TIFF/2016-06/tubhiswt-2D.zip && unzip tubhiswt-2D.zip && mv tubhiswt-2D data
       - name: Test
         shell: bash
         run: |
           docker run -t -v $(pwd)/data/:/data/ bio-formats-octave test.m /data/tubhiswt-2D/tubhiswt_C0.ome.tif
-          docker run -t -v $(pwd)/data/:/data/ bio-formats-octave test.m  /data/test&sizeT=3.fake
+          docker run -t -v $(pwd)/data/:/data/ bio-formats-octave test.m  /data/time-series.ome.xml
   # Push image to DockerHub
   upload:
     needs: build
